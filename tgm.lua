@@ -266,7 +266,7 @@ function TGM.handleSystemMessage(text)
         TGM_refreshTickets()
         return
     end
-
+	
     -- stop if no ticket is active
     if not TGM.ticket then
         return
@@ -365,11 +365,11 @@ function TGM.processTickets()
 
         local frame = "TGM_Ticket_" .. i
 
-        _G[frame]:SetPoint("TOPLEFT", TGMRightPanelScrollFrameChild, "TOPLEFT", 11, 26 - 26 * i)
+        _G[frame]:SetPoint("TOPLEFT", TGMRightPanelScrollFrameChild, "TOPLEFT", 8, 26 - 26 * i)
 
         _G[frame .. 'TicketIndex']:SetText('|cffffffff' .. i)
         _G[frame .. 'PlayerName']:SetText(data.name)
-        _G[frame .. 'TicketTextShort']:SetText(string.sub(data.message_replaced, 1, 35) .. '...')
+        -- _G[frame .. 'TicketTextShort']:SetText(string.sub(data.message_replaced, 1, 35) .. '...')
         _G[frame .. 'AssignButton']:SetID(data.id)
         _G[frame .. 'ManageTicket']:SetID(data.id)
 
@@ -572,7 +572,7 @@ TGM.templatesFrames = {}
 
 function TGM_ToggleTemplates()
 
-    TGMRightPanel:Hide()
+    -- TGMRightPanel:Hide()
     TGMTemplatesPanel:Show()
 
     for _, frame in next, TGM.templatesFrames do
@@ -589,7 +589,7 @@ function TGM_ToggleTemplates()
 
         local frame = "TGM_ResponseTemplate_" .. i
 
-        _G[frame]:SetPoint("TOPLEFT", TGMTemplatesPanel, "TOPLEFT", 18 - 260 + 260 * col, -30 * row)
+        _G[frame]:SetPoint("TOPLEFT", TGMTemplatesPanel, "TOPLEFT", 18 - 160 + 160 * col, -25 * row)
         _G[frame .. 'Button']:SetText(data.title)
         _G[frame .. 'Button']:SetID(i)
         _G[frame .. 'EditButton']:SetID(i)
